@@ -1,0 +1,30 @@
+language: node_js
+cache:
+  directories:
+    - node_modules
+    - ~/.npm
+
+node_js:
+  - "12"
+
+git:
+  depth: 3
+
+script:
+  - yarn test
+
+notifications:
+  email:
+    recipients:
+      - "sarabryanale@outlook.com"
+    on_success: always
+    on_failure: always
+
+deploy:
+  provide: heroku
+  skip-cleanup: true
+  keep-history: true
+  api_key: 140f7855-44b9-4b49-a881-84b1f9bb866e
+  app: platzi-store-backend-brycatch
+  on:
+    repo: brycatch/platzi-store-backend
